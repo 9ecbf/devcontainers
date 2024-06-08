@@ -1,0 +1,52 @@
+{
+  "build": {
+    "context": ".",
+    "dockerfile": "Dockerfile",
+    "args": {
+      "WORKSPACE": "python-workspace",
+      "PYTHON_VERSION": "3.10",
+      "USER": "dev"
+    }
+  },
+  "remoteUser": "dev",
+  "postAttachCommand": "bun install",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "httpbook.saveWithOutputs": false,
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.extraPaths": [".venv/lib/python3.10/site-packages"],
+        "python.analysis.typeCheckingMode": "basic"
+      },
+      "extensions": [
+        "anweber.httpbook",
+        "DavidAnson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "KevinRose.vsc-python-indent",
+        "mechatroner.rainbow-csv",
+        "ms-azuretools.vscode-docker",
+        "ms-python.black-formatter",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "oven.bun-vscode",
+        "redhat.vscode-yaml",
+        "shardulm94.trailing-spaces",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "YoavBls.pretty-ts-errors"
+      ]
+    }
+  },
+  "features": {
+    "docker-in-docker": {
+      "moby": true,
+      "version": "latest"
+    }
+  },
+  "runArgs": ["--init"]
+}
